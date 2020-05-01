@@ -6,3 +6,5 @@ Includes:
 
 * flake8
 * pytest
+* imagemagick (+ghostscript)
+* diffutils
