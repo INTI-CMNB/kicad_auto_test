@@ -4,6 +4,7 @@ LABEL Description="KiCad with KiPlot and other automation scripts w/test tools"
 
 RUN     apt-get update  && \
 	apt-get -y install --no-install-recommends flake8 python3-pytest imagemagick ghostscript diffutils && \
+	apt-get -y install python3-coverage && \
 	apt-get -y autoremove && \
 	rm -rf /var/lib/apt/lists/*
 

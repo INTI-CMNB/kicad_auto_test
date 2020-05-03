@@ -4,7 +4,8 @@ This docker image is used to test the tools found in [kicad_auto](http://github.
 
 Includes:
 
-* flake8
-* pytest
+* python3-flake8
+* python3-pytest
 * imagemagick (+ghostscript)
 * diffutils
+* python3-coverage
