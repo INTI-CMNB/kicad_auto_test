@@ -9,3 +9,10 @@ Includes:
 * imagemagick (+ghostscript)
 * diffutils
 * python3-coverage
+* python-coveralls
+* git
+
+Notes:
+* git is used by coveralls
+* imagemagick and ghostscipt are used to compare images and PDFs on tests
+
