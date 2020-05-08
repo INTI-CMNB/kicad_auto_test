@@ -11,8 +11,10 @@ Includes:
 * python3-coverage
 * python-coveralls
 * git
+* x11-utils
 
 Notes:
 * git is used by coveralls
 * imagemagick and ghostscipt are used to compare images and PDFs on tests
+* x11-utils provides xprop
 
