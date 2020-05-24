@@ -6,7 +6,7 @@ Includes:
 
 * python3-flake8
 * python3-pytest
-* imagemagick (+ghostscript)
+* imagemagick (+ghostscript +librsvg2-bin)
 * diffutils
 * python3-coverage
 * python-coveralls
@@ -16,5 +16,6 @@ Includes:
 Notes:
 * git is used by coveralls
 * imagemagick and ghostscipt are used to compare images and PDFs on tests
+* librsvg2-bin is used to add SVG support to imagemagick
 * x11-utils provides xprop
 
