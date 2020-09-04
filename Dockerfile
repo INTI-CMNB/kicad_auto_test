@@ -1,11 +1,39 @@
 FROM setsoft/kicad_auto:latest
 MAINTAINER Salvador E. Tropea <set@ieee.org>
-LABEL Description="KiCad with KiPlot and other automation scripts w/test tools"
+LABEL Description="KiCad with KiBot and other automation scripts w/test tools"
+
+RUN     apt-get update  && \
+	apt-get -y install --no-install-recommends flake8 && \
+	apt-get -y autoremove && \
+	rm -rf /var/lib/apt/lists/*
+
+RUN     apt-get update  && \
+	apt-get -y install --no-install-recommends python3-pytest && \
+	apt-get -y autoremove && \
+	rm -rf /var/lib/apt/lists/*
+
+RUN     apt-get update  && \
+	apt-get -y install python3-coverage && \
+	apt-get -y autoremove && \
+	rm -rf /var/lib/apt/lists/*
+
+RUN     apt-get update  && \
+	apt-get -y install --no-install-recommends imagemagick librsvg2-bin ghostscript && \
+	apt-get -y autoremove && \
+	rm -rf /var/lib/apt/lists/*
+
+RUN     apt-get update  && \
+	apt-get -y install --no-install-recommends diffutils git && \
+	apt-get -y autoremove && \
+	rm -rf /var/lib/apt/lists/*
+
+RUN     apt-get update  && \
+	apt-get -y install --no-install-recommends x11-utils fluxbox x11vnc wmctrl && \
+	apt-get -y autoremove && \
+	rm -rf /var/lib/apt/lists/*
 
 COPY *.deb /
 RUN     apt-get update  && \
-	apt-get -y install --no-install-recommends flake8 python3-pytest imagemagick librsvg2-bin ghostscript diffutils git x11-utils fluxbox x11vnc wmctrl && \
-	apt-get -y install python3-coverage && \
 	apt -y install --no-install-recommends ./*.deb && \
 	apt-get -y autoremove && \
 	rm -rf /var/lib/apt/lists/*
