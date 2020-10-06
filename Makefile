@@ -1,6 +1,6 @@
 #!/usr/bin/make
 tagname = 10.4-5.1.6
-tagname_ng = bullseye-5.99-20200922
+tagname_ng = bullseye-5.99-20201002
 docker_user = setsoft
 docker_img = setsoft/kicad_auto_test
 
@@ -15,7 +15,7 @@ build: download_packages
 	docker build -f Dockerfile -t $(docker_img):$(tagname) .
 	docker build -f Dockerfile -t $(docker_img):latest .
 
-build_ng: download_packages
+build_ng:
 	docker build -f Dockerfile-nightly -t $(docker_img):$(tagname_ng) .
 	docker build -f Dockerfile-nightly -t $(docker_img):nightly .
 
