@@ -9,6 +9,7 @@ RUN     apt-get update  && \
 	                                           diffutils git \
 	                                           x11-utils fluxbox x11vnc wmctrl \
 	                                           unzip && \
+	                                           procps && \
 	apt-get -y install python3-coverage wget curl && \
 	curl -s https://api.github.com/repos/set-soft/coveralls-python/releases/latest | grep "browser_download_url.*deb" | cut -d : -f 2,3 | tr -d \" | wget -i - && \
 	apt -y install --no-install-recommends ./*.deb && \
