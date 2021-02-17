@@ -9,7 +9,7 @@ RUN     apt-get update  && \
 	                                           imagemagick librsvg2-bin ghostscript \
 	                                           diffutils git \
 	                                           x11-utils fluxbox x11vnc wmctrl \
-	                                           unzip && \
+	                                           unzip \
 	                                           procps && \
 	apt-get -y install wget curl && \
 	curl -s https://api.github.com/repos/set-soft/coveralls-python/releases/latest | grep "browser_download_url.*deb" | cut -d : -f 2,3 | tr -d \" | wget -i - && \
