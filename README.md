@@ -13,6 +13,8 @@ Includes:
 * git
 * x11-utils
 * unzip
+* procps
+* xlsx2csv
 
 Notes:
 * git is used by coveralls
