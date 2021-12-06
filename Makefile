@@ -13,8 +13,8 @@ build:
 	docker build -f Dockerfile -t $(docker_img):latest .
 
 build_ng:
-	docker build -f Dockerfile-nightly -t $(docker_img):$(tagname_ng) .
-	docker build -f Dockerfile-nightly -t $(docker_img):nightly .
+	docker build -f nightly/Dockerfile -t $(docker_img):$(tagname_ng) .
+	docker build -f nightly/Dockerfile -t $(docker_img):nightly .
 
 upload_image:
 	#docker login --username=$(docker_user)
