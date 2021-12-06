@@ -20,3 +20,13 @@ RUN     apt-get update  && \
 	apt-get -y autoremove && \
 	rm -rf /var/lib/apt/lists/*
 
+# 8:6.9.10.23+dfsg-2.1+deb10u1 restricted ghostscript formats, but we need them
+RUN     sed -i 's/<policy domain="coder" rights="none" pattern="PDF" \/>/<!-- <policy domain="coder" rights="none" pattern="PDF" \/> -->/g' /etc/ImageMagick-6/policy.xml && \
+	sed -i 's/<policy domain="coder" rights="none" pattern="PS" \/>/<!-- <policy domain="coder" rights="none" pattern="PS" \/> -->/g' /etc/ImageMagick-6/policy.xml
+
+# KiBoM Python 2.7 test
+RUN     apt-get update  && \
+	apt-get -y install --no-install-recommends python-pytest python-xlsxwriter && \
+	apt-get -y autoremove && \
+	rm -rf /var/lib/apt/lists/*
+
