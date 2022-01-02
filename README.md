@@ -13,6 +13,7 @@ Includes:
 * git
 * x11-utils
 * unzip
+* zbar-tools
 * procps
 * xlsx2csv
 

@@ -9,6 +9,7 @@ RUN     apt-get update  && \
 	                                           diffutils git \
 	                                           x11-utils fluxbox x11vnc wmctrl \
 	                                           unzip \
+	                                           zbar-tools \
 	                                           procps \
 	                                           xlsx2csv && \
 	apt-get -y install -t buster-backports python3-coverage wget curl && \
