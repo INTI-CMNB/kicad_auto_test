@@ -10,7 +10,6 @@ Includes:
 * diffutils
 * python3-coverage
 * python-coveralls
-* git
 * x11-utils
 * unzip
 * zbar-tools

@@ -6,7 +6,7 @@ RUN     apt-get update  && \
 	apt-get -y install --no-install-recommends flake8    \
 	                                           python3-pytest    \
 	                                           imagemagick librsvg2-bin ghostscript    \
-	                                           diffutils git \
+	                                           diffutils \
 	                                           x11-utils fluxbox x11vnc wmctrl \
 	                                           unzip \
 	                                           zbar-tools \

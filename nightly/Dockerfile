@@ -7,7 +7,7 @@ RUN     apt-get update  && \
 	                                           python3-pytest \
 	                                           python3-coverage \
 	                                           imagemagick librsvg2-bin ghostscript \
-	                                           diffutils git \
+	                                           diffutils \
 	                                           x11-utils fluxbox x11vnc wmctrl \
 	                                           unzip \
 	                                           zbar-tools \
