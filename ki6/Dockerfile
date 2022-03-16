@@ -12,6 +12,7 @@ RUN     apt-get update  && \
 	                                           zbar-tools \
 	                                           procps \
 	                                           xlsx2csv && \
+	apt-get -y install pandoc texlive-latex-base texlive-latex-recommended && \
 	apt-get -y install -t bullseye-backports curl && \
 	apt-get -y install python3-coverage wget && \
 	curl -s https://api.github.com/repos/set-soft/coveralls-python/releases/latest | grep "browser_download_url.*deb" | cut -d : -f 2,3 | tr -d \" | wget -i - && \

@@ -15,10 +15,11 @@ Includes:
 * zbar-tools
 * procps
 * xlsx2csv
+* pandoc (+texlive-latex-base and texlive-latex-recommended)
 
 Notes:
 * git is used by coveralls
 * imagemagick and ghostscipt are used to compare images and PDFs on tests
 * librsvg2-bin is used to add SVG support to imagemagick
 * x11-utils provides xprop
-
+* pandoc can convert markdown to PDF (for KiBot reports)
