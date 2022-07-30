@@ -17,7 +17,7 @@ RUN     apt-get update  && \
 	curl -s https://api.github.com/repos/set-soft/coveralls-python/releases/latest | grep "browser_download_url.*deb" | cut -d : -f 2,3 | tr -d \" | wget -i - && \
 	apt -y install --no-install-recommends ./*.deb && \
 	rm *.deb && \
-	apt-get -y remove curl wget && \
+	apt-get -y remove wget && \
 	apt-get -y autoremove && \
 	rm -rf /var/lib/apt/lists/*
 

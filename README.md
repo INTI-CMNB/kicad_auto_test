@@ -16,6 +16,7 @@ Includes:
 * procps
 * xlsx2csv
 * pandoc (+texlive-latex-base and texlive-latex-recommended)
+* curl
 
 Notes:
 * git is used by coveralls
