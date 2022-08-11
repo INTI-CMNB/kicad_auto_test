@@ -1,4 +1,4 @@
-FROM setsoft/kicad_auto:
+FROM setsoft/kicad_auto:latest
 MAINTAINER Salvador E. Tropea <set@ieee.org>
 LABEL Description="KiCad with KiBot and other automation scripts w/test tools"
 
