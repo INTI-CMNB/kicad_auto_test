@@ -1,10 +1,10 @@
-FROM setsoft/kicad_auto:latest
+FROM setsoft/kicad_auto:
 MAINTAINER Salvador E. Tropea <set@ieee.org>
 LABEL Description="KiCad with KiBot and other automation scripts w/test tools"
 
 RUN     apt-get update  && \
 	apt-get -y install --no-install-recommends flake8    \
-	                                           python3-pytest \
+	                                           python3-pytest python3-pytest-xdist \
 	                                           python3-pip python3-wheel python3-setuptools \
 	                                           diffutils \
 	                                           x11-utils fluxbox x11vnc wmctrl \
