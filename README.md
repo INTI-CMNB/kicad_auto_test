@@ -1,6 +1,9 @@
 # kicad_auto_test
 
 This docker image is used to test the tools found in [kicad_auto](http://github.com/INTI-CMNB/kicad_auto).
+The images are uploaded to Docker Hub [setsoft/kicad_auto_test](https://hub.docker.com/repository/docker/setsoft/kicad_auto_test) and
+the Git Hub packages: [kicad5_auto_full](https://github.com/INTI-CMNB/kicad_auto_test/pkgs/container/kicad5_auto_full) and
+[kicad6_auto_full](https://github.com/INTI-CMNB/kicad_auto_test/pkgs/container/kicad6_auto_full).
 
 Includes:
 
