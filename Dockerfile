@@ -6,6 +6,7 @@ RUN     apt-get update  && \
 	apt-get -y install --no-install-recommends flake8    \
 	                                           python3-pytest python3-pytest-xdist \
 	                                           python3-pip python3-wheel python3-setuptools \
+	                                           python3-markdown2 \
 	                                           diffutils \
 	                                           x11-utils fluxbox x11vnc wmctrl \
 	                                           unzip \
