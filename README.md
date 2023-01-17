@@ -20,6 +20,7 @@ Includes:
 * xlsx2csv
 * pandoc (+texlive-latex-base and texlive-latex-recommended)
 * curl
+* blender + pcb2blender (ki6 images)
 
 Notes:
 * git is used by coveralls
