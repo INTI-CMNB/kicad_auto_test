@@ -1,4 +1,4 @@
-FROM setsoft/kicad_auto:nightly
+FROM docker pull ghcr.io/inti-cmnb/kicad_auto:nightly
 MAINTAINER Salvador E. Tropea <set@ieee.org>
 LABEL Description="KiCad with KiBot and other automation scripts w/test tools (nightly)"
 
