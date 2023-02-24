@@ -43,3 +43,10 @@ COPY  enable_pcb2blender.py /usr/bin/
 RUN     curl -L https://github.com/30350n/pcb2blender/releases/download/v2.1-k6.0-b3.4/pcb2blender_importer_2-1.zip -o pcb2blender_importer_2-1.zip && \
 	blender --background --python /usr/bin/enable_pcb2blender.py && \
 	rm pcb2blender_importer_2-1.zip
+# iBoM using PyPi so it honors the Python path
+RUN     dpkg -r interactivehtmlbom.inti-cmnb && \
+	curl https://codeload.github.com/INTI-CMNB/interactivehtmlbom/zip/refs/heads/master --output pp.zip && \
+	unzip pp.zip && \
+	pip3 install InteractiveHtmlBom-master/ && \
+	rm -rf InteractiveHtmlBom-master/ && \
+	rm pp.zip
