@@ -15,7 +15,7 @@ RUN     apt-get update  && \
 	                                           xlsx2csv && \
 	apt-get -y install pandoc texlive-latex-base texlive-latex-recommended && \
 	apt-get -y install python3-coverage wget curl && \
-	curl -s https://api.github.com/repos/set-soft/coveralls-python/releases/latest | grep "browser_download_url.*deb" | cut -d : -f 2,3 | tr -d \" | wget -i - && \
+	dl_deb.py set-soft/coveralls-python && \
 	apt -y install --no-install-recommends ./*.deb && \
 	rm *.deb && \
 	apt-get -y remove wget && \
