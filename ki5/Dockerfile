@@ -15,8 +15,6 @@ RUN     apt-get update  && \
 	dl_deb.py set-soft/kicost-digikey-api-v3 && \
 	dl_deb.py hildogjr/KiCost && \
 	dl_deb.py INTI-CMNB/InteractiveHtmlBom && \
-	dl_deb.py set-soft/pcbnewTransition && \
-	dl_deb.py INTI-CMNB/KiKit --skip kikit-doc && \
 	dl_deb.py INTI-CMNB/KiAuto && \
 	dl_deb.py INTI-CMNB/kidiff && \
 	dl_deb.py INTI-CMNB/KiBot && \
