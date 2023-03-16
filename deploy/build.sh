@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 # KiCad 6, tag the generic ki6 as latest and also for Docker Hub
 docker tag ghcr.io/inti-cmnb/kicad_auto_test:ki6 setsoft/kicad_auto_test:ki6
 docker tag ghcr.io/inti-cmnb/kicad_auto_test:ki6 ghcr.io/inti-cmnb/kicad6_auto_full:latest

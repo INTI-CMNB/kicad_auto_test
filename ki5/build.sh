@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 cp ../enable_pcb2blender.py .
 docker build -f Dockerfile -t ghcr.io/inti-cmnb/kicad5_auto_full:latest .
 IT=2
