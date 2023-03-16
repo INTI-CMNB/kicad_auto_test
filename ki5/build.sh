@@ -9,9 +9,11 @@ TG3=d`docker run --rm ghcr.io/inti-cmnb/kicad5_auto_full:latest cat /etc/debian_
 TG4=b`docker run --rm ghcr.io/inti-cmnb/kicad5_auto_full:latest /bin/bash -c "ls -d /usr/bin/?.? | tr -d '\n' | tail -c 3"`
 docker tag ghcr.io/inti-cmnb/kicad5_auto_full:latest ghcr.io/inti-cmnb/kicad5_auto_full:${TG1}-${IT}_${TG2}_${TG3}_${TG4}
 docker tag ghcr.io/inti-cmnb/kicad5_auto_full:latest ghcr.io/inti-cmnb/kicad5_auto_full:${TG1}
+docker tag ghcr.io/inti-cmnb/kicad5_auto_full:latest ghcr.io/inti-cmnb/kicad_auto_test:ki5
 docker tag ghcr.io/inti-cmnb/kicad5_auto_full:latest ghcr.io/inti-cmnb/kicad_auto_test:latest
 docker push ghcr.io/inti-cmnb/kicad5_auto_full:${TG1}-${IT}_${TG2}_${TG3}_${TG4}
 docker push ghcr.io/inti-cmnb/kicad5_auto_full:${TG1}
+docker push ghcr.io/inti-cmnb/kicad_auto_test:ki5
 docker push ghcr.io/inti-cmnb/kicad_auto_test:latest
 # Leave the following for the deploy:
 #docker tag ghcr.io/inti-cmnb/kicad5_auto_full:latest setsoft/kicad_auto_test:latest
