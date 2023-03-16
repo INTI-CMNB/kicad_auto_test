@@ -19,7 +19,7 @@ RUN     apt-get update  && \
 	dl_deb.py INTI-CMNB/KiKit --skip kikit-doc && \
 	dl_deb.py INTI-CMNB/KiAuto && \
 	dl_deb.py INTI-CMNB/kidiff && \
-	echo dl_deb.py INTI-CMNB/KiBot && \
+	dl_deb.py INTI-CMNB/KiBot && \
 	apt -y install --no-install-recommends ./*.deb && \
 	apt-get -y autoremove && \
 	rm /*.deb && \
