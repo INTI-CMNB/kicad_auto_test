@@ -1,15 +1,15 @@
-name: Docker Hub upload
+name: KiBot (KiCad 5 Full) Docker image
 
 on:
   push:
     tags:
-      - b*
+      - ki5_*
   repository_dispatch:
     types: [build_k5]
 
 jobs:
   push_to_registry:
-    name: Push Docker image to Docker Hub and GitHub Packages
+    name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
     permissions:
       packages: write
@@ -32,21 +32,7 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Extract metadata (tags, labels) for Docker
-      id: meta
-      uses: docker/metadata-action@v4
-      with:
-        images: |
-          setsoft/kicad_auto_test
-          ghcr.io/${{ github.repository }}
-          ghcr.io/inti-cmnb/kicad5_auto_full
-        tags: |
-          type=raw,latest
-
     - name: Build and push Docker image
-      uses: docker/build-push-action@v3
-      with:
-        # context: tools/dev_image
-        push: true
-        tags: ${{ steps.meta.outputs.tags }}
-        labels: ${{ steps.meta.outputs.labels }}
+      run: |
+        cd ki5
+        ./build.sh

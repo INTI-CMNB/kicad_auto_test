@@ -1,7 +1,7 @@
-FROM ghcr.io/inti-cmnb/kicad6_auto_full:latest_deps
+FROM ghcr.io/inti-cmnb/kicad7_auto_full:latest_deps
 MAINTAINER Salvador E. Tropea <set@ieee.org>
-LABEL Description="KiCad 6 w/KiBot and other automation scripts (full)"
-LABEL org.opencontainers.image.description "KiCad 6 w/KiBot and other automation scripts (full)"
+LABEL Description="KiCad 7 w/KiBot and other automation scripts (full)"
+LABEL org.opencontainers.image.description "KiCad 7 w/KiBot and other automation scripts (full)"
 
 # Install the Blender plug-in
 COPY  enable_pcb2blender.py /usr/bin/
@@ -19,7 +19,7 @@ RUN     apt-get update  && \
 	dl_deb.py INTI-CMNB/KiKit --skip kikit-doc && \
 	dl_deb.py INTI-CMNB/KiAuto && \
 	dl_deb.py INTI-CMNB/kidiff && \
-	dl_deb.py INTI-CMNB/KiBot && \
+	echo dl_deb.py INTI-CMNB/KiBot && \
 	apt -y install --no-install-recommends ./*.deb && \
 	apt-get -y autoremove && \
 	rm /*.deb && \

@@ -1,11 +1,11 @@
-name: KiBot (KiCad 6 Full) Docker image
+name: Tag images to make them visible
 
 on:
   push:
     tags:
-      - ki6_*
+      - deploy_*
   repository_dispatch:
-    types: [build_k6]
+    types: [deploy]
 
 jobs:
   push_to_registry:
@@ -32,7 +32,7 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Build and push Docker image
+    - name: Generate official tags
       run: |
-        cd ki6
+        cd deploy
         ./build.sh
