@@ -5,7 +5,7 @@ import sys
 
 
 ORG = 'INTI-CMNB'
-PKGS = {'kicad_auto_full', 'kicad5_auto_full', 'kicad6_auto_full', 'kicad7_auto_full'}
+PKGS = {'kicad_auto_test', 'kicad5_auto_full', 'kicad6_auto_full', 'kicad7_auto_full'}
 PKG = 'kicad5_auto_full'
 HEADER = {'Accept': 'application/vnd.github+json',
           'Authorization': 'Bearer '+sys.argv[1],
