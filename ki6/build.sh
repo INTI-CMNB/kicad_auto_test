@@ -2,7 +2,7 @@
 set -e
 cp ../enable_pcb2blender.py .
 docker build -f Dockerfile -t ghcr.io/inti-cmnb/kicad6_auto_full:latest .
-IT=3
+IT=4
 TG1=`docker run --rm ghcr.io/inti-cmnb/kicad6_auto_full:latest kibot --version | sed 's/.* \([0-9]\+\.[0-9]\+\.[0-9]\+\) .*/\1/' | tr -d '\n'`
 TG2=k`docker run --rm ghcr.io/inti-cmnb/kicad6_auto_full:latest kicad_version.py`
 TG3=d`docker run --rm ghcr.io/inti-cmnb/kicad6_auto_full:latest cat /etc/debian_version | tr -d '\n'`
