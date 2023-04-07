@@ -1,4 +1,4 @@
-FROM ghcr.io/inti-cmnb/kicad_auto_full:nightly_deps
+FROM ghcr.io/inti-cmnb/kicad_auto_test:nightly_deps
 MAINTAINER Salvador E. Tropea <set@ieee.org>
 LABEL Description="KiCad nightly w/KiBot and other automation scripts (full)"
 LABEL org.opencontainers.image.description "KiCad nightly w/KiBot and other automation scripts (full)"
