@@ -17,8 +17,6 @@ RUN     apt-get update  && \
 	dl_deb.py INTI-CMNB/InteractiveHtmlBom && \
 	dl_deb.py set-soft/pcbnewTransition && \
 	dl_deb.py INTI-CMNB/KiKit --skip kikit-doc && \
-	dl_deb.py INTI-CMNB/KiAuto && \
-	dl_deb.py INTI-CMNB/kidiff && \
 	apt -y install --no-install-recommends ./*.deb && \
 	apt-get -y autoremove && \
 	rm /*.deb && \
@@ -28,7 +26,16 @@ RUN     apt-get update && \
 	unzip pp.zip && \
 	pip3 install --no-compile KiBot-dev/ && \
 	rm -rf KiBot-dev pp.zip && \
+	curl https://codeload.github.com/INTI-CMNB/KiAuto/zip/refs/heads/master --output pp.zip && \
+	unzip pp.zip && \
+	pip3 install KiAuto-master/ && \
+	rm -rf KiAuto-master/ pp.zip && \
+	curl https://codeload.github.com/INTI-CMNB/KiDiff/zip/refs/heads/master --output pp.zip && \
+	unzip pp.zip && \
+	pip3 install KiDiff-master/ && \
+	rm -rf KiDiff-master/ pp.zip && \
 	rm -rf /var/lib/apt/lists/* /var/cache/debconf/templates.dat-old /var/lib/dpkg/status-old
 
 #	dl_deb.py INTI-CMNB/KiBot && \
-
+#	dl_deb.py INTI-CMNB/KiAuto && \
+#	dl_deb.py INTI-CMNB/kidiff && \
