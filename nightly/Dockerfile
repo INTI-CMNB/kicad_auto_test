@@ -22,10 +22,6 @@ RUN     apt-get update  && \
 	rm /*.deb && \
 	rm -rf /var/lib/apt/lists/* /var/cache/debconf/templates.dat-old /var/lib/dpkg/status-old
 RUN     apt-get update && \
-	curl https://codeload.github.com/INTI-CMNB/KiBot/zip/refs/heads/dev --output pp.zip && \
-	unzip pp.zip && \
-	pip3 install --no-compile KiBot-dev/ && \
-	rm -rf KiBot-dev pp.zip && \
 	curl https://codeload.github.com/INTI-CMNB/KiAuto/zip/refs/heads/master --output pp.zip && \
 	unzip pp.zip && \
 	pip3 install KiAuto-master/ && \
@@ -34,6 +30,10 @@ RUN     apt-get update && \
 	unzip pp.zip && \
 	pip3 install KiDiff-master/ && \
 	rm -rf KiDiff-master/ pp.zip && \
+	curl https://codeload.github.com/INTI-CMNB/KiBot/zip/refs/heads/dev --output pp.zip && \
+	unzip pp.zip && \
+	pip3 install --no-compile KiBot-dev/ && \
+	rm -rf KiBot-dev pp.zip && \
 	rm -rf /var/lib/apt/lists/* /var/cache/debconf/templates.dat-old /var/lib/dpkg/status-old
 
 #	dl_deb.py INTI-CMNB/KiBot && \
