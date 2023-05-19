@@ -1,0 +1,42 @@
+name: KiBot (KiCad Stable Nightly Full) Docker image
+
+on:
+  push:
+    tags:
+      - sn*
+  repository_dispatch:
+    types: [build_stable_nightly]
+
+jobs:
+  push_to_registry:
+    name: Push Docker image to Docker Hub
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+
+    steps:
+    - name: Check out the repo
+      uses: actions/checkout@v3
+
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v2
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
+    - name: Log in to the Container registry
+      uses: docker/login-action@v2
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Build and push Docker image
+      run: |
+        cd stable_nightly
+        ./build.sh
+
+    - name: Trigger KiBot nightly tests
+      run: |
+        curl -L -X POST -H "Authorization: Bearer ${{secrets.PAT_TOKEN}}" -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" https://api.github.com/repos/INTI-CMNB/KiBot/actions/workflows/test_stable_nightly.yml/dispatches --data '{"ref": "dev"}'
