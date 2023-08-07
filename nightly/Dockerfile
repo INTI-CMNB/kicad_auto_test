@@ -24,15 +24,15 @@ RUN     apt-get update  && \
 RUN     apt-get update && \
 	curl https://codeload.github.com/INTI-CMNB/KiAuto/zip/refs/heads/master --output pp.zip && \
 	unzip pp.zip && \
-	pip3 install KiAuto-master/ && \
+	pip3 install --break-system-packages KiAuto-master/ && \
 	rm -rf KiAuto-master/ pp.zip && \
 	curl https://codeload.github.com/INTI-CMNB/KiDiff/zip/refs/heads/master --output pp.zip && \
 	unzip pp.zip && \
-	pip3 install KiDiff-master/ && \
+	pip3 install --break-system-packages KiDiff-master/ && \
 	rm -rf KiDiff-master/ pp.zip && \
 	curl https://codeload.github.com/INTI-CMNB/KiBot/zip/refs/heads/dev --output pp.zip && \
 	unzip pp.zip && \
-	pip3 install --no-compile KiBot-dev/ && \
+	pip3 install --break-system-packages --no-compile KiBot-dev/ && \
 	rm -rf KiBot-dev pp.zip && \
 	rm -rf /var/lib/apt/lists/* /var/cache/debconf/templates.dat-old /var/lib/dpkg/status-old
 
