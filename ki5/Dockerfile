@@ -18,7 +18,7 @@ RUN     apt-get update  && \
 	dl_deb.py INTI-CMNB/KiAuto && \
 	dl_deb.py INTI-CMNB/kidiff && \
 	dl_deb.py INTI-CMNB/KiBot && \
-	apt -y install --no-install-recommends ./*.deb && \
+	apt-get -y install --no-install-recommends ./*.deb && \
 	apt-get -y autoremove && \
 	rm /*.deb && \
 	rm -rf /var/lib/apt/lists/* /var/cache/debconf/templates.dat-old /var/lib/dpkg/status-old
