@@ -24,3 +24,6 @@ RUN     apt-get update  && \
 	apt-get -y autoremove && \
 	rm /*.deb && \
 	rm -rf /var/lib/apt/lists/* /var/cache/debconf/templates.dat-old /var/lib/dpkg/status-old
+COPY  pcb2blender-1.patch /
+RUN   cd /usr/lib/python3/dist-packages/kibot/blender_scripts  && \
+	patch -p7 -i /pcb2blender-1.patch
