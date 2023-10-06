@@ -8,7 +8,8 @@ RUN     apt-get update  && \
 	apt -y install --no-install-recommends wget && \
 	echo "XLSX Writer 3 fixes some important limitations in URLs (used by KiBoM, KiCost, KiBot, etc.)"  && \
 	wget http://http.us.debian.org/debian/pool/main/x/xlsxwriter/python3-xlsxwriter_3.0.2-2_all.deb  && \
-	apt -y install --no-install-recommends ./*.deb && \
+	apt-get -y install --no-install-recommends ./*.deb && \
+	apt-get -y install --no-install-recommends python3-mistune && \
 	apt-get -y remove wget && \
 	apt-get -y autoremove && \
 	rm /*.deb && \
