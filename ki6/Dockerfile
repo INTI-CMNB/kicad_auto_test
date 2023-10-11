@@ -5,9 +5,9 @@ LABEL org.opencontainers.image.description "KiCad 6 w/KiBot and other automation
 
 # Install the Blender plug-in
 COPY  enable_pcb2blender.py /usr/bin/
-RUN     curl -L https://github.com/30350n/pcb2blender/releases/download/v2.6-k7.0-b3.5/pcb2blender_importer_2-6.zip -o pcb2blender_importer_2-6.zip && \
+RUN     curl -L https://github.com/30350n/pcb2blender/releases/download/v2.7-k7.0-b3.6/pcb2blender_importer_2-7.zip -o pcb2blender_importer_2-7.zip && \
 	blender --background --python /usr/bin/enable_pcb2blender.py && \
-	rm pcb2blender_importer_2-6.zip
+	rm pcb2blender_importer_2-7.zip
 # Install all the tools, dependencies are already installed
 RUN     apt-get update  && \
 	dl_deb.py INTI-CMNB/KiBoM && \
