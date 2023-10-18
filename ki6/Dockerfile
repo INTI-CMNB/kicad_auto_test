@@ -25,8 +25,10 @@ RUN     apt-get update  && \
 	rm /*.deb && \
 	rm -rf /var/lib/apt/lists/* /var/cache/debconf/templates.dat-old /var/lib/dpkg/status-old
 COPY  pcb2blender-1.patch /
+COPY  materials.py /
 RUN     apt-get update  && \
 	apt-get -y install --no-install-recommends patch  && \
 	cd /usr/lib/python3/dist-packages/kibot/blender_scripts  && \
 	patch -p7 -i /pcb2blender-1.patch  && \
+	cp /materials.py /usr/bin/3.5/scripts/addons/pcb2blender_importer  && \
 	rm -rf /var/lib/apt/lists/* /var/cache/debconf/templates.dat-old /var/lib/dpkg/status-old

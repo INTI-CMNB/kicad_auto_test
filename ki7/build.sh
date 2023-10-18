@@ -2,6 +2,7 @@
 set -e
 cp ../enable_pcb2blender.py .
 cp ../pcb2blender-1.patch .
+cp ../materials.py .
 docker build -f Dockerfile -t ghcr.io/inti-cmnb/kicad7_auto_full:latest .
 IT=1
 TG1=`docker run --rm ghcr.io/inti-cmnb/kicad7_auto_full:latest kibot --version | sed 's/.* \([0-9]\+\.[0-9]\+\.[0-9]\+\) .*/\1/' | tr -d '\n'`
