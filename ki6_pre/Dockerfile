@@ -4,6 +4,8 @@ LABEL Description="Layer used for new dependencies"
 LABEL org.opencontainers.image.description "Layer used for new dependencies"
 
 RUN     apt-get update  && \
+	echo "Support for KiCad dark look for default GNOME"  && \
+	apt-get -y install --no-install-recommends gnome-themes-extra-data  && \
 	echo "Missing mistune"  && \
 	apt-get -y install --no-install-recommends python3-mistune && \
 	apt-get -y autoremove && \

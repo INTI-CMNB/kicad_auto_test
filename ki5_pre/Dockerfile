@@ -4,6 +4,8 @@ LABEL Description="Layer used for new dependencies"
 LABEL org.opencontainers.image.description "Layer used for new dependencies"
 
 RUN     apt-get update  && \
+	echo "Support for KiCad dark look for default GNOME"  && \
+	apt-get -y install --no-install-recommends gnome-themes-extra-data  && \
 	echo "Use wget to download some stuff"  && \
 	apt -y install --no-install-recommends wget && \
 	echo "XLSX Writer 3 fixes some important limitations in URLs (used by KiBoM, KiCost, KiBot, etc.)"  && \
