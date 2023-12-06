@@ -19,3 +19,12 @@ RUN     apt-get update  && \
 
 # Fix for the .deb downloader, should be removed in the next OS iteration
 COPY dl_deb.py /usr/bin/
+
+# Should be moved to kicad_debian
+ENV KICAD_AUTO_FULL=1
+
+RUN     kicad_version.py > /etc/kiauto_tag && \
+	echo -n _d >> /etc/kiauto_tag && \
+	cat /etc/debian_version | tr -d '\n' >> /etc/kiauto_tag && \
+	echo -n _b >> /etc/kiauto_tag && \
+	blender --version | head -n 1 | tr -d 'Blender ' >> /etc/kiauto_tag
