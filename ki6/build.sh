@@ -1,7 +1,6 @@
 #!/bin/sh
 set -e
 cp ../enable_pcb2blender.py .
-cp ../pcb2blender-1.patch .
 cp ../materials.py .
 . ../iteration.sh
 docker build -f Dockerfile --build-arg iteration=${IT} -t ghcr.io/inti-cmnb/kicad6_auto_full:latest .
