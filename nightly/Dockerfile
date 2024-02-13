@@ -5,9 +5,9 @@ LABEL org.opencontainers.image.description "KiCad nightly w/KiBot and other auto
 
 # Install the Blender plug-in
 COPY  enable_pcb2blender.py /usr/bin/
-RUN     curl -L https://github.com/30350n/pcb2blender/releases/download/v2.1-k6.0-b3.4/pcb2blender_importer_2-1.zip -o pcb2blender_importer_2-1.zip && \
+RUN     curl -L https://github.com/30350n/pcb2blender/releases/download/v2.7-k7.0-b3.6/pcb2blender_importer_2-7.zip -o pcb2blender_importer_2-7.zip && \
 	blender --background --python /usr/bin/enable_pcb2blender.py && \
-	rm pcb2blender_importer_2-1.zip
+	rm pcb2blender_importer_2-7.zip
 # Install all the tools, dependencies are already installed
 RUN     apt-get update  && \
 	dl_deb.py INTI-CMNB/KiBoM && \
@@ -15,10 +15,15 @@ RUN     apt-get update  && \
 	dl_deb.py set-soft/kicost-digikey-api-v3 && \
 	dl_deb.py hildogjr/KiCost && \
 	dl_deb.py INTI-CMNB/InteractiveHtmlBom && \
-	dl_deb.py set-soft/pcbnewTransition && \
+	dl_deb.py set-soft/pcbnewTransition  && \
 	dl_deb.py INTI-CMNB/KiKit --skip kikit-doc && \
-	apt -y install --no-install-recommends ./*.deb && \
-	apt-get -y autoremove && \
+	dpkg --ignore-depends kicad -i kicad-git*.deb && \
+	dpkg --ignore-depends kicad -i kibom*.deb && \
+	dpkg --ignore-depends kicad -i interactivehtmlbom*.deb && \
+	dpkg --ignore-depends kicad -i kicost-digi*.deb && \
+	dpkg --ignore-depends kicad -i kicost_*.deb && \
+	dpkg --ignore-depends kicad -i python3-pcbnewtransition*.deb && \
+	dpkg --ignore-depends kicad --ignore-depends kicad-footprints --ignore-depends kicad-symbols -i python3-pymeta*.deb python3-pybars*.deb kikit*.deb && \
 	rm /*.deb && \
 	rm -rf /var/lib/apt/lists/* /var/cache/debconf/templates.dat-old /var/lib/dpkg/status-old
 RUN     apt-get update && \
