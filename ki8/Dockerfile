@@ -39,20 +39,3 @@ RUN     kibot --version | sed 's/.* \([0-9]\+\.[0-9]\+\.[0-9]\+\) .*/\1/' | tr -
 	cat /etc/debian_version | tr -d '\n' >> /etc/kiauto_tag && \
 	echo -n _b >> /etc/kiauto_tag && \
 	blender --version | head -n 1 | tr -d 'Blender ' >> /etc/kiauto_tag
-
-# Temporal layer to install current WIP versions of KiAuto, KiDiff and KiBot.
-# Should be removed
-RUN     apt-get update && \
-	curl https://codeload.github.com/INTI-CMNB/KiAuto/zip/refs/heads/master --output pp.zip && \
-	unzip pp.zip && \
-	pip3 install --break-system-packages KiAuto-master/ && \
-	rm -rf KiAuto-master/ pp.zip && \
-	curl https://codeload.github.com/INTI-CMNB/KiDiff/zip/refs/heads/master --output pp.zip && \
-	unzip pp.zip && \
-	pip3 install --break-system-packages KiDiff-master/ && \
-	rm -rf KiDiff-master/ pp.zip && \
-	curl https://codeload.github.com/INTI-CMNB/KiBot/zip/refs/heads/dev --output pp.zip && \
-	unzip pp.zip && \
-	pip3 install --break-system-packages --no-compile KiBot-dev/ && \
-	rm -rf KiBot-dev pp.zip && \
-	rm -rf /var/lib/apt/lists/* /var/cache/debconf/templates.dat-old /var/lib/dpkg/status-old
