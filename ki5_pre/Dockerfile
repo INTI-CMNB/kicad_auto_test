@@ -12,6 +12,8 @@ RUN     apt-get update  && \
 	wget http://http.us.debian.org/debian/pool/main/x/xlsxwriter/python3-xlsxwriter_3.0.2-2_all.deb  && \
 	apt-get -y install --no-install-recommends ./*.deb && \
 	apt-get -y install --no-install-recommends python3-mistune && \
+	echo "SSH client"  && \
+	apt-get -y install --no-install-recommends ssh && \
 	apt-get -y remove wget && \
 	apt-get -y autoremove && \
 	rm /*.deb && \
