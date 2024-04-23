@@ -13,7 +13,7 @@ RUN     apt-get update  && \
 	apt-get -y install --no-install-recommends ./*.deb && \
 	apt-get -y install --no-install-recommends python3-mistune && \
 	echo "SSH client"  && \
-	apt-get -y install --no-install-recommends ssh && \
+	apt-get -y install --no-install-recommends openssh-client && \
 	apt-get -y remove wget && \
 	apt-get -y autoremove && \
 	rm /*.deb && \
