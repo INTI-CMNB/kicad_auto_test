@@ -36,3 +36,4 @@ jobs:
       run: |
         cd ki8
         ./build.sh
+        ./push.sh
