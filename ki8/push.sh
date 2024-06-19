@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 . ../iteration.sh
-. tgs.sh
+. ./tgs.sh
 docker push ghcr.io/inti-cmnb/kicad8_auto_full:${TG1}-${IT}_${TG2}_${TG3}_${TG4}
 docker push ghcr.io/inti-cmnb/kicad8_auto_full:${TG1}
 docker push ghcr.io/inti-cmnb/kicad_auto_test:ki8
