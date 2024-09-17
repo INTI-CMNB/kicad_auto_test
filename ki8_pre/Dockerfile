@@ -3,6 +3,7 @@ MAINTAINER Salvador E. Tropea <set@ieee.org>
 LABEL Description="Layer used for new dependencies"
 LABEL org.opencontainers.image.description "Layer used for new dependencies"
 
+COPY kicad_3d_install.sh /usr/bin/
 RUN     apt-get update  && \
 	echo "Support for KiCad dark look for default GNOME"  && \
 	apt-get -y install --no-install-recommends gnome-themes-extra-data  && \
