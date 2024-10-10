@@ -11,5 +11,7 @@ RUN     apt-get update  && \
 	apt-get -y install --no-install-recommends python3-mistune && \
 	echo "SSH client"  && \
 	apt-get -y install --no-install-recommends openssh-client && \
+	echo "Nasty patch to support tightframe on KiKit panelization" && \
+	pip install --break-system-packages --upgrade shapely && \
 	apt-get -y autoremove && \
 	rm -rf /var/lib/apt/lists/* /var/cache/debconf/templates.dat-old /var/lib/dpkg/status-old
