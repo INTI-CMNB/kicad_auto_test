@@ -27,6 +27,9 @@ RUN     apt-get update  && \
 COPY    materials.py /
 RUN     cp /materials.py /usr/bin/3.5/scripts/addons/pcb2blender_importer
 
+# Temporal fix for 1.8.2
+COPY frame_plotter /usr/share/kibot/tools/
+
 # Should be moved to kicad_debian
 ENV KICAD_AUTO_FULL=1
 ARG iteration
