@@ -2,6 +2,8 @@ name: Erase old versions
 
 on:
   push:
+    paths:
+      - 'tools/garbage_collector.py'
     tags:
       - clean_*
   repository_dispatch:
