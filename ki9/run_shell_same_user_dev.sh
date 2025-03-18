@@ -10,4 +10,4 @@ docker run --rm -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY \
     --volume="/etc/passwd:/etc/passwd:ro" \
     --volume="/etc/shadow:/etc/shadow:ro" \
     --volume="/home/$USER:/home/$USER:rw" \
-    ghcr.io/inti-cmnb/kicad_auto_full:dev_k9 /bin/bash
+    ghcr.io/inti-cmnb/kicad9_auto_full:dev /bin/bash
