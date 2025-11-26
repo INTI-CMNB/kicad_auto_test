@@ -11,3 +11,5 @@ docker run --rm -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY \
     --volume="/etc/shadow:/etc/shadow:ro" \
     --volume="/home/$USER:/home/$USER:rw" \
     ghcr.io/inti-cmnb/kicad_auto_test:ki8 /bin/bash
+#    e166fdd75496 /bin/bash
+
