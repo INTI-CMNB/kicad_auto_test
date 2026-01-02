@@ -11,7 +11,7 @@ RUN     apt-get update  && \
 	echo "SSH client"  && \
 	apt-get -y install --no-install-recommends openssh-client && \
 	apt-get -y install --no-install-recommends python3-reportlab && \
-	curl -O http://http.us.debian.org/debian/pool/main/c/ca-certificates/ca-certificates_20241223_all.deb && \
+	curl -O http://http.us.debian.org/debian/pool/main/c/ca-certificates/ca-certificates_20250419_all.deb && \
 	apt-get -y install --no-install-recommends ./*.deb && \
 	rm *.deb && \
 	apt-get -y autoremove && \
