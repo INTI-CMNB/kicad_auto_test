@@ -51,14 +51,5 @@ RUN     dpkg --remove kibot && \
 	mv KiBot-dev/kibot/resources/pcbdraw/PcbDraw-Lib-master KiBot-dev/kibot/resources/pcbdraw/footprints && \
 	pip3 install --break-system-packages --no-compile KiBot-dev/ && \
 	rm -rf KiBot-dev pp.zip pp2.zip && \
-	dpkg --remove kidiff kiauto && \
-	curl https://codeload.github.com/INTI-CMNB/KiAuto/zip/refs/heads/master --output pp.zip && \
-	unzip pp.zip && \
-	pip3 install --break-system-packages KiAuto-master/ && \
-	rm -rf KiAuto-master/ pp.zip && \
-	curl https://codeload.github.com/INTI-CMNB/KiDiff/zip/refs/heads/master --output pp.zip && \
-	unzip pp.zip && \
-	pip3 install --break-system-packages KiDiff-master/ && \
-	rm -rf KiDiff-master/ pp.zip && \
 	rm -rf /var/lib/apt/lists/*
 
