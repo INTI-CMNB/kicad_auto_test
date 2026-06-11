@@ -12,12 +12,14 @@ RUN     apt-get update  && \
 	apt-get -y install --no-install-recommends python3-reportlab && \
 	dl_deb.py set-soft/coveralls-python && \
 	apt-get -y install --no-install-recommends ./*.deb && \
+	rm /*.deb && \
+	echo Patching kicad-cli
 	apt-get -y install --no-install-recommends python3-capstone && \
 	pip install --break-system-packages lief && \
 	python3 /usr/bin/patch_cli.py /usr/bin/kicad-cli && \
 	pip uninstall --break-system-packages lief -y && \
 	apt-get -y remove python3-capstone && \
-	rm /*.deb && \
 	apt-get -y install --no-install-recommends python3-zstd && \
+	apt-get -y autoremove && \
 	rm -rf /var/lib/apt/lists/* /var/cache/debconf/templates.dat-old /var/lib/dpkg/status-old
 
