@@ -4,12 +4,19 @@ LABEL Description="Layer used for new dependencies"
 LABEL org.opencontainers.image.description="Layer used for new dependencies"
 
 COPY kicad_version.py /usr/bin/
+# kicad-cli pcb render patcher
+COPY patch_cli.py /usr/bin/
 # Coveralls 4.0.2, should be moved to base_os_full
 # Python support for ZStandard compression for KiCad 9 embedded files, should be moved to base_os
 RUN     apt-get update  && \
 	apt-get -y install --no-install-recommends python3-reportlab && \
 	dl_deb.py set-soft/coveralls-python && \
 	apt-get -y install --no-install-recommends ./*.deb && \
+	apt-get -y install --no-install-recommends python3-capstone && \
+	pip install --break-system-packages lief && \
+	python3 /usr/bin/patch_cli.py /usr/bin/kicad-cli && \
+	pip uninstall --break-system-packages lief -y && \
+	apt-get -y remove python3-capstone && \
 	rm /*.deb && \
 	apt-get -y install --no-install-recommends python3-zstd && \
 	rm -rf /var/lib/apt/lists/* /var/cache/debconf/templates.dat-old /var/lib/dpkg/status-old
