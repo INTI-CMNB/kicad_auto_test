@@ -13,7 +13,7 @@ RUN     apt-get update  && \
 	dl_deb.py set-soft/coveralls-python && \
 	apt-get -y install --no-install-recommends ./*.deb && \
 	rm /*.deb && \
-	echo Patching kicad-cli
+	echo Patching kicad-cli && \
 	apt-get -y install --no-install-recommends python3-capstone && \
 	pip install --break-system-packages lief && \
 	python3 /usr/bin/patch_cli.py /usr/bin/kicad-cli && \
