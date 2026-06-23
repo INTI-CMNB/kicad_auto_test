@@ -39,17 +39,3 @@ RUN     kibot --version | sed 's/.* \([0-9]\+\.[0-9]\+\.[0-9]\+\) .*/\1/' | tr -
 	echo -n _b >> /etc/kiauto_tag && \
 	blender --version | head -n 1 | tr -d 'Blender ' >> /etc/kiauto_tag
 
-# Install KiBot, KiAuto and KiDiff from repos
-RUN     dpkg --remove kibot && \
-	apt-get update && \
-	apt-get -y install --no-install-recommends python3-setuptools && \
-	curl https://codeload.github.com/INTI-CMNB/KiBot/zip/refs/heads/dev --output pp.zip && \
-	unzip pp.zip && \
-	curl https://codeload.github.com/yaqwsx/PcbDraw-Lib/zip/refs/heads/master --output pp2.zip && \
-	unzip pp2.zip -d KiBot-dev/kibot/resources/pcbdraw/ && \
-	rmdir KiBot-dev/kibot/resources/pcbdraw/footprints && \
-	mv KiBot-dev/kibot/resources/pcbdraw/PcbDraw-Lib-master KiBot-dev/kibot/resources/pcbdraw/footprints && \
-	pip3 install --break-system-packages --no-compile KiBot-dev/ && \
-	rm -rf KiBot-dev pp.zip pp2.zip && \
-	rm -rf /var/lib/apt/lists/*
-
